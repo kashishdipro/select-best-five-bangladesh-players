@@ -57,6 +57,12 @@ function calculateTotalExpenses(){
     const getPlayerExpenses = getTextElementValueById('player-expenses');
     const getManagerAmount = getInputFieldValueById('manager-amount-field');
     const getCoachAmount = getInputFieldValueById('coach-amount-field');
+    
+    //Check if it is number or not
+    if(isNaN(getManagerAmount && getCoachAmount)){
+        alert('Please, Provide a valid amount!');
+        return;
+    }
 
     const calculateTotalExpenses = getPlayerExpenses + getManagerAmount + getCoachAmount;
 
