@@ -36,11 +36,14 @@ function displayPlayerList(playerList){
 function calculatePlayerExpenses(){
     const getPerPlayerAmount = getInputFieldValueById('per-player-amount');
     
+    //Check if it is number or not
     if(isNaN(getPerPlayerAmount)){
         alert('Please, Provide a valid amount!');
         return;
     }
     const playerLength = bestFiveList.length;
+    
+    //Check length is equal to five or not
     if(playerLength !== 5){
         alert('Select atleast five players!');
         return;
@@ -48,4 +51,15 @@ function calculatePlayerExpenses(){
         const calculatePlayerExpenses = playerLength * getPerPlayerAmount;
         setElementValueById('player-expenses', calculatePlayerExpenses);
     }
+}
+
+function calculateTotalExpenses(){
+    const getPlayerExpenses = getTextElementValueById('player-expenses');
+    const getManagerAmount = getInputFieldValueById('manager-amount-field');
+    const getCoachAmount = getInputFieldValueById('coach-amount-field');
+
+    const calculateTotalExpenses = getPlayerExpenses + getManagerAmount + getCoachAmount;
+
+    setElementValueById('total-expenses', calculateTotalExpenses);
+
 }

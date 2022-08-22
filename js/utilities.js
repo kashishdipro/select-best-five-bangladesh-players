@@ -5,6 +5,13 @@ function getInputFieldValueById(inputId) {
     return inputFieldValue;
 }
 
+// Fetch the Element Field and convert it into Float number
+function getTextElementValueById(elementId) {
+    const element = document.getElementById(elementId);
+    const elementValue = parseFloat(element.innerText);
+    return elementValue;
+}
+
 // Set new value into the element
 function setElementValueById(elementId, newValue) {
     const element = document.getElementById(elementId);
