@@ -1,6 +1,7 @@
 // create an empty array for insert player name
 const bestFiveList = [];
 function addToBestFive(element){
+    element.disabled = true;
     // Fetch the Player Name
     const playerName = element.parentNode.parentNode.children[0].innerText;
 
@@ -29,5 +30,22 @@ function displayPlayerList(playerList){
         </p>
         `;
         listedPlayer.appendChild(div);
+    }
+}
+
+function calculatePlayerExpenses(){
+    const getPerPlayerAmount = getInputFieldValueById('per-player-amount');
+    
+    if(isNaN(getPerPlayerAmount)){
+        alert('Please, Provide a valid amount!');
+        return;
+    }
+    const playerLength = bestFiveList.length;
+    if(playerLength !== 5){
+        alert('Select atleast five players!');
+        return;
+    }else{
+        const calculatePlayerExpenses = playerLength * getPerPlayerAmount;
+        setElementValueById('player-expenses', calculatePlayerExpenses);
     }
 }
